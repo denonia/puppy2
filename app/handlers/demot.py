@@ -43,8 +43,9 @@ async def handle_reply(message: Message) -> None:
             await bot.send_animation(message.chat.id, InputFile(file_out))
 
         else:
-            create_demot(file_in, file_out, text[0], text[1])
-            
+            for frames in create_demot(file_in, file_out, text[0], text[1]):
+                continue
+
             await bot.send_photo(message.chat.id, InputFile(file_out))
 
         os.remove(file_in)

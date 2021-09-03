@@ -50,5 +50,5 @@ async def handle_reply(message: Message) -> None:
 
             await bot.send_photo(message.chat.id, InputFile(file_out))
 
-        # os.remove(file_in)
-        # os.remove(file_out)
+        os.remove(file_in)
+        os.remove(file_out)

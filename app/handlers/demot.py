@@ -16,7 +16,7 @@ async def handle_reply(message: Message) -> None:
             img = message.reply_to_message.sticker
             format = ".png"
         elif message.reply_to_message.photo:
-            img = message.reply_to_message.photo[0]
+            img = message.reply_to_message.photo[-1]
             format = ".png"
         elif message.reply_to_message.animation:
             img = message.reply_to_message.animation
@@ -50,5 +50,5 @@ async def handle_reply(message: Message) -> None:
 
             await bot.send_photo(message.chat.id, InputFile(file_out))
 
-        os.remove(file_in)
-        os.remove(file_out)
+        # os.remove(file_in)
+        # os.remove(file_out)

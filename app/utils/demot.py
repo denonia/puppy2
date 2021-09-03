@@ -26,7 +26,7 @@ def create_demot(file_in: str, file_out: str, caption1: str, caption2: str) -> i
         + caption2
         + '":fontcolor=white:fontsize=30:x=\(w-text_w\)/2:y=460,'
         + "drawbox=68:38:436:340:white@0.7:2 "
-        + "-sws_flags bilinear -codec:a copy -progress - "
+        + "-progress - "
         + file_out
     )
 

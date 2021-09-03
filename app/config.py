@@ -1,10 +1,7 @@
 import secrets
+import os
 
-from envparse import env
-
-env.read_envfile()
-
-TOKEN_TELEGRAM = env.str("TOKEN_TELEGRAM")
+TOKEN_TELEGRAM = os.getenv("TOKEN_TELEGRAM")
 
 # DOMAIN = env.str("DOMAIN", default="localhost")
 # SECRET_KEY = secrets.token_urlsafe(48)

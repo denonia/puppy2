@@ -1,15 +1,15 @@
 import os
 
 from telegram import dp, bot
-from aiogram.types import ContentType, InputFile
+from aiogram.types import ContentType, InputFile, Message
 
 from utils.demot import create_demot, count_frames
 from utils.paths import filename_append
 from utils.text import emoji_progress_bar
 
 @dp.message_handler(content_types=ContentType.TEXT)
-async def handle_reply(message):
-    if message.reply_to_message and "|" in message:
+async def handle_reply(message: Message) -> None:
+    if message.reply_to_message and "|" in message.text:
         # not sure about this one, but they all have file_id and file_name attributes
         if message.reply_to_message.sticker:
             img = message.reply_to_message.sticker

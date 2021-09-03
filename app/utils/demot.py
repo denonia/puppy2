@@ -1,14 +1,15 @@
 import io
 import subprocess
 
-def count_frames(file):
+
+def count_frames(file: str) -> int:
     cmd = "ffprobe -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 " + file
 
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
     
     return int(p.stdout.readline())
 
-def create_demot(file_in, file_out, caption1, caption2):
+def create_demot(file_in: str, file_out: str, caption1: str, caption2: str) -> int:
 
     cmd = "ffmpeg -y -i " + file_in + " -vf scale=424:328,pad=width=574:height=522:x=75:y=45," + \
         "drawtext=fontfile=assets/times.ttf:text=\"" + caption1 + "\":fontcolor=white:fontsize=48:x=\(w-text_w\)/2:y=400," + \
@@ -21,5 +22,3 @@ def create_demot(file_in, file_out, caption1, caption2):
     for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
         if line.startswith("frame="):
             yield int(line.removeprefix("frame="))
-
-    p.wait()

@@ -1,5 +1,6 @@
 import os
 
+
 def filename_append(filename: str, text: str) -> str:
     """Appends text after filename, before extension."""
     name, ext = os.path.splitext(filename)

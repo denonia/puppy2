@@ -7,6 +7,7 @@ from utils.demot import create_demot, count_frames
 from utils.paths import filename_append
 from utils.text import emoji_progress_bar
 
+
 @dp.message_handler(content_types=ContentType.TEXT)
 async def handle_reply(message: Message) -> None:
     if message.reply_to_message and "|" in message.text:
@@ -36,7 +37,7 @@ async def handle_reply(message: Message) -> None:
             for frames in create_demot(file_in, file_out, text[0], text[1]):
                 percent = int(frames / total_frames * 100)
                 new = "progress: " + str(percent) + "%\n" + emoji_progress_bar(percent)
-                if progress_bar.text != new: # crashes if edited message is identical
+                if progress_bar.text != new:  # crashes if edited message is identical
                     await progress_bar.edit_text(new)
 
             await progress_bar.delete()

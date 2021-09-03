@@ -32,11 +32,12 @@ async def handle_reply(message: Message) -> None:
 
         if format == ".mp4":
             total_frames = count_frames(file_in)
-            progress_bar = await bot.send_message(message.chat.id, "progress: 0%\n🌚🌚🌚🌚")
+            pb_template = "frame {0}/{1}\nprogress: {2}%\n{3}"
+            progress_bar = await bot.send_message(message.chat.id, pb_template.format("0", str(total_frames), "0", "🌚🌚🌚🌚"))
 
             for frames in create_demot(file_in, file_out, text[0], text[1]):
                 percent = int(frames / total_frames * 100)
-                new = "progress: " + str(percent) + "%\n" + emoji_progress_bar(percent)
+                new = pb_template.format(str(frames), str(total_frames), percent, emoji_progress_bar(percent))
                 if progress_bar.text != new:  # crashes if edited message is identical
                     await progress_bar.edit_text(new)
 

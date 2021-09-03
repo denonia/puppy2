@@ -34,4 +34,4 @@ def create_demot(file_in: str, file_out: str, caption1: str, caption2: str) -> i
 
     for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
         if line.startswith("frame="):
-            yield int(line.removeprefix("frame="))
+            yield int(line[6:])

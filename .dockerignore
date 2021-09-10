@@ -1,7 +1,5 @@
-.env
-venv
-ffmpeg.exe
-ffprobe.exe
+# ffmpeg, ffprobe binaries
+*.exe
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

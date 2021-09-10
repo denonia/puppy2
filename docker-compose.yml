@@ -3,7 +3,7 @@ services:
   bot:
     build: .
     environment:
-      - TOKEN_TELEGRAM={TOKEN_TELEGRAM}
+      - TOKEN_TELEGRAM=${TOKEN_TELEGRAM}
     deploy:
       restart_policy:
         condition: any

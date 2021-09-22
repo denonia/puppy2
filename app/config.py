@@ -1,3 +1,4 @@
 import os
 
 TOKEN_TELEGRAM = os.getenv("TOKEN_TELEGRAM")
+MONGODB_ATLAS_URL = os.getenv("MONGODB_ATLAS_URL")

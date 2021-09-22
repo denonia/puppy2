@@ -8,7 +8,6 @@ class MongoRepository(object):
     def __init__(self, loop: events.AbstractEventLoop):
         global mongo
         client: motor_asyncio.AsyncIOMotorClient = motor_asyncio.AsyncIOMotorClient(MONGODB_ATLAS_URL, io_loop=loop)
-        # client.get_io_loop = loop
         print(client.server_info())
         mongo = client["dima_msg"]["messages"]
 

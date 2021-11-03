@@ -1,3 +1,3 @@
-from . import demot
+from . import message
 
 # from . import misc

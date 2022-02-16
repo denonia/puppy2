@@ -1,3 +1,5 @@
-import os
+from envparse import env
 
-TOKEN_TELEGRAM = os.getenv("TOKEN_TELEGRAM")
+env.read_envfile()
+
+TOKEN_TELEGRAM = env.str("TOKEN_TELEGRAM")

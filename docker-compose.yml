@@ -3,5 +3,5 @@ services:
   bot:
     build: .
     restart: always
-    environment:
-      - TOKEN_TELEGRAM=${TOKEN_TELEGRAM}
+    env_file:
+      - .env

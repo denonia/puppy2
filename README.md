@@ -12,7 +12,7 @@ git clone https://github.com/denonia/puppy2.git && cd puppy2
 
 2. set **TOKEN_TELEGRAM** in .env file
 ```bash
-TOKEN_TELEGRAM=1234567890:something > .env
+echo TOKEN_TELEGRAM=1234567890:something > .env
 ```
 3. build the container
 ```bash
